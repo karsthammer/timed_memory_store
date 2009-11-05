@@ -1,13 +1,17 @@
 TimedMemoryStore
 ================
-
-Introduction goes here.
-
-
-Example
-=======
-
-Example goes here.
-
-
-Copyright (c) 2009 [name of plugin creator], released under the MIT license
+ 
+A variation on the default Rails Memory Store used for caching page fragments in memory. The TimedMemoryStore gives you the option to add an :expires_in option to your cache block.
+ 
+Usage
+=====
+- script/plugin install git://github.com/karsthammer/timed_memory_store.git
+- Add config.cache_store = :timed_memory_store to your environment.rb
+ 
+And now you can add the expires_in option to your cache block:
+ 
+<% cache :expires_in => 10.minutes do %>
+  <h1>Fragment that you want to cache</h1>
+<% end %>
+ 
+Copyright (c) 2009 Karst Hammer, released under the MIT license
